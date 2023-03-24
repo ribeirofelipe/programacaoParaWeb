@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+
+<body>
+
+    <style>
+        .titulo {
+            font-size: medium;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .tituloGeral {
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .Campos {
+            font-size: medium;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .Geral {
+            background-color: aqua;
+            border-radius: 10px;
+        }
+    </style>
+    <form action="SalvarDados.php">
+
+        <table class="Geral" border="1">
+
+            <tr>
+                <td class="tituloGeral" colspan="100%">Tabela de Cadastro <br />&nbsp;<br> </td>
+            </tr>
+
+            <td class="Campos">Nome: </td>
+            <td><input type="text" name="Nome" id="NomeID"></td>
+            </tr>
+
+            </tr>
+            <td class="Campos">Telefone: </td>
+            <td><input type="number" name="Telefone" id="TelefoneID"></td>
+            </tr>
+            <tr>
+                <td class="Campos">Cep: </td>
+                <td><input type="number" name="Cep" id="CepID"></td>
+            </tr>
+
+            <tr>
+                <td class="Campos">Endereço: </td>
+                <td><input type="text" name="Endereço" id="EndereçoID"></td>
+            </tr>
+            <tr>
+                <td class="Campos">CPF: </td>
+                <td><input type="number" name="CPF" id="CPFID"></td>
+            </tr>
+
+            <tr>
+                <td class="Campos">E-mail: </td>
+                <td><input type="email" name="CPF" id="CPFID" size=9 maxlength=9></td>
+            </tr>
+
+            <tr>
+                <td class="tituloGeral" colspan=100%>
+                    <input type=submit>
+                    <br /><br />
+
+                    <input type="button" onclick="fnValidarCampos()" value="Enviar com validação">
+                </td>
+            </tr>
+
+        </table>
+        <div id="msgemail"></div>
+    </form>
+
+</body>
+
+<script>
+    function fnValidarCampos() {
+
+        var Nome = document.getElementById("NomeID");
+        var Telefone = document.getElementById("TelefoneID");
+        var Cep = document.getElementById("CepID");
+        var Endereço = document.getElementById("EndereçoID");
+        var CPF = document.getElementById("CPFID");
+
+        if (Nome.value == 0) {
+            alert("Campo Obrigatório! (Nome)");
+            return false;
+        }
+        if (Telefone.value == 0) {
+            alert("Campo Obrigatório (Telefone)")
+            return false;
+        }
+        if (Cep.value == 0) {
+            alert("Campo Obrigatório (Cep)")
+            return false;
+        }
+        if (Endereço.value == 0) {
+            alert("Campo Obrigatório (Endereço)")
+            return false;
+        }
+        if (CPF.value == 0) {
+            alert("Campo Obrigatório (CPF)")
+            return false;
+        }
+    }
+</script>
+<script language="Javascript">
+    function validacaoEmail(field) {
+        usuario = field.value.substring(0, field.value.indexOf("@"));
+        dominio = field.value.substring(field.value.indexOf("@") + 1, field.value.length);
+
+        if ((usuario.length >= 1) &&
+            (dominio.length >= 3) &&
+            (usuario.search("@") == -1) &&
+            (dominio.search("@") == 1) &&
+            (usuario.search(" ") == -1) &&
+            (dominio.search(" ") == -1) &&
+            (dominio.search(".") == -1) &&
+            (dominio.indexOf(".") == 1) &&
+            (dominio.lastIndexOf(".") < dominion.length - 1)) {
+
+            document.getElementById("msgemail").innerHTML = "E-mail válido";
+            alert("E-mail válido")
+        }
+        else {
+            document.getElementById("msgemail").innerHTML = "<font color='red'>E-mail inválido</font>";
+            alert("E-mail inválido");
+        }
+
+    }
+
+</script>
+
+<script language='JavaScript'>
+        function fnBuscaSelectEspecifico(busca, select) {
+            var valorABuscar = busca.value;
+            var buscaid = busca.id;
+            var valorABuscarSemFormatacao =
+                valorAbuscar.
+                    replace(/(\.|\(|\)|\/|\-|)+/g, '');
+            var valorABuscarFormatado = "";
+
+            valorABuscar = valorABuscar.toLowerCase();
+            var selectedTrends = document.getElementById(select);
+            selectedTrends.style.display = "none";
+            valorIndex = selectedTrends.selectedIndex;
+            var soprineiro = true;
+            var soprineiroSelecionado = '0';
+
+            for (var i = 1; 1 < selectedTrends.length; i++) {
+                valorTextSelectMaiusculo = selectedTrends.options[i].text;
+            }
+
+        }
+</script>
+
+</html>
